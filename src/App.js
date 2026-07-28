@@ -15,7 +15,7 @@ const Portfolio = () => {
           <div className="contacts">
             <span>📍 Hyderabad, India</span>
             <span>📧 <a href="mailto:ganeshchilakala11@gmail.com">ganeshchilakala11@gmail.com</a></span>
-            <span>📞 +91 6301739686</span>
+            <span>📞 +91 6301739686, +91 9948128644</span>
             <span>🔗 <a href="https://www.linkedin.com/in/chilakala-sai-ganesh-b7a539210/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
             <span>💻 <a href="https://github.com/ganesh63017/" target="_blank" rel="noopener noreferrer">GitHub</a></span>
           </div>
