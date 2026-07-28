@@ -48,6 +48,304 @@
   --border: #334155;
 }
 
+/* --- CUSTOM SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-hover);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* New: Continuous shimmer for text */
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+/* New: Attention pulse for buttons */
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+  70% { box-shadow: 0 0 0 12px rgba(56, 189, 248, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); }
+}
+
+.portfolio-wrapper {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.portfolio-wrapper * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.portfolio-wrapper .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Header / Hero */
+.portfolio-wrapper header {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Upgraded: Shimmering Name */
+.portfolio-wrapper h1 {
+  font-size: 2.8rem;
+  margin-bottom: 8px;
+  background: linear-gradient(
+    90deg, 
+    #ffffff 0%, 
+    var(--primary) 50%, 
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+.portfolio-wrapper .title {
+  font-size: 1.25rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.portfolio-wrapper .contacts {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.portfolio-wrapper .contacts a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.portfolio-wrapper .contacts a:hover {
+  color: #7dd3fc;
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+}
+
+/* Upgraded: Pulsing Download Button */
+.portfolio-wrapper .btn-download {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--bg);
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  animation: pulseGlow 2s infinite; /* Adds the pulse */
+}
+
+.portfolio-wrapper .btn-download:hover {
+  background-color: #7dd3fc;
+  transform: translateY(-3px);
+  animation: none; /* Stops pulsing when user hovers */
+  box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Section Header */
+.portfolio-wrapper .section-title {
+  font-size: 1.75rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--primary);
+  display: inline-block;
+  padding-bottom: 4px;
+  opacity: 0;
+  animation: slideInLeft 0.6s ease-out 0.2s forwards;
+}
+
+/* General Cards (About, Experience, Education) */
+.portfolio-wrapper .card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.4s forwards;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.portfolio-wrapper .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--primary);
+}
+
+/* Skills Matrix */
+.portfolio-wrapper .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+}
+
+.portfolio-wrapper .skill-category {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Upgraded: Neon glow on skill category */
+.portfolio-wrapper .skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 15px rgba(129, 140, 248, 0.2);
+  border-color: var(--accent);
+}
+
+.portfolio-wrapper .skill-category h3 {
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.portfolio-wrapper .skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.portfolio-wrapper .tag {
+  background: rgba(56, 189, 248, 0.05);
+  color: var(--primary);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.portfolio-wrapper .tag:hover {
+  background: var(--primary);
+  color: var(--bg);
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 4px 10px rgba(56, 189, 248, 0.3);
+}
+
+/* Projects */
+.portfolio-wrapper .project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.6s forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Upgraded: Cinematic glow on project cards */
+.portfolio-wrapper .project-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.15);
+  border-color: var(--primary);
+}
+
+.portfolio-wrapper .project-card h3 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.portfolio-wrapper .project-card:hover h3 {
+  color: var(--primary);
+}
+
+.portfolio-wrapper .project-card ul {
+  padding-left: 20px;
+  margin: 12px 0;
+  color: var(--text-muted);
+}
+
+.portfolio-wrapper .project-card li {
+  margin-bottom: 6px;
+}
+
+/* Stats Bar */
+.portfolio-wrapper .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out 0.7s forwards;
+}
+
+.portfolio-wrapper .stat-card {
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-width 0.1s;
+}
+
+.portfolio-wrapper .stat-card:hover {
+  transform: translateY(-4px);
+  background-color: var(--surface-hover);
+  border-left: 8px solid var(--primary);
+}
+
+.portfolio-wrapper .stat-num {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.portfolio-wrapper .stat-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
 .portfolio-wrapper {
   background-color: var(--bg);
   color: var(--text);
