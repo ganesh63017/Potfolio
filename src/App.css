@@ -105,6 +105,9 @@
   color: var(--primary);
   text-decoration: none;
 }
+.a{
+   color: #ffffff;
+}
 
 /* Download Button */
 .portfolio-wrapper .btn-download {
@@ -154,6 +157,7 @@
 }
 
 .portfolio-wrapper .skill-category {
+  cursor: pointer;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
@@ -167,6 +171,7 @@
 }
 
 .portfolio-wrapper .skill-tags {
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -209,6 +214,7 @@
 
 /* Stats Bar */
 .portfolio-wrapper .stats-grid {
+  cursor: pointer;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
